@@ -46,7 +46,7 @@ function MoreInfo() {
 
   /* ----------------------------- RENDER THE PAGE ---------------------------- */
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col h-dvh">
       {/* Navbar */}
       <div className="bg-gray-800 text-white p-4 flex justify-between items-center">
         <div className="flex items-center">
@@ -123,7 +123,7 @@ function MoreInfo() {
         </div>
 
         {/* Second Card for Attach Resume and Cover Letter */}
-        <div className="bg-white shadow rounded p-4">
+        <div className="bg-white shadow rounded p-4 flex flex-col items-center">
           {/* Attach Resume */}
           <div className="mb-8">
             <h3 className="text-lg font-semibold mb-2">Attach Resume</h3>
