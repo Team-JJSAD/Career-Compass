@@ -29,20 +29,32 @@ function MoreInfo() {
       followUpDate,
       jobDescription,
     });
-    // This could be sending data to a backend or simply logging for now
+    // Placeholder for future backend integration
   };
 
   // Handle saving notes edits
   const handleSaveNotesEdits = () => {
     console.log({ notes });
-    // Implement logic to save notes here
+    // Placeholder for future backend integration
   };
 
   // Handle saving contacts edits
   const handleSaveContactsEdits = () => {
     console.log({ contactName, position, phoneNumber, email });
-    // Implement logic to save contacts here
+    // Placeholder for future backend integration
   };
+
+    // Function to handle deleting an application
+    const handleDeleteApplication = () => {
+      console.log('Delete application');
+      // Placeholder for future backend integration
+    };
+  
+    // Function to handle saving all edits
+    const handleSaveAllEdits = () => {
+      console.log('Save all edits');
+      // Placeholder for future backend integration
+    };
 
   /* ----------------------------- RENDER THE PAGE ---------------------------- */
   return (
@@ -59,9 +71,10 @@ function MoreInfo() {
       </div>
 
       {/* Title Bar */}
-      <div className="bg-gray-200 p-4 text-center font-semibold">
+      <div className="bg-gray-200 p-6 text-center font-bold text-3xl">
         More Info
       </div>
+
 
       {/* Content Bar */}
       <div className="flex-grow container mx-auto p-4 grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -125,9 +138,9 @@ function MoreInfo() {
         {/* Second Card for Attach Resume and Cover Letter */}
         <div className="bg-white shadow rounded p-4 flex flex-col items-center">
           {/* Attach Resume */}
-          <div className="mb-8">
-            <h3 className="text-lg font-semibold mb-2">Attach Resume</h3>
-            <div className="flex justify-start space-x-4">
+          <div className="w-full mb-8">
+            <h3 className="text-lg font-semibold mb-2 text-center">Attach Resume</h3>
+            <div className="flex justify-center space-x-4">
               <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                 View
               </button>
@@ -138,9 +151,9 @@ function MoreInfo() {
           </div>
 
           {/* Attach Cover Letter */}
-          <div>
-            <h3 className="text-lg font-semibold mb-2">Attach Cover Letter</h3>
-            <div className="flex justify-start space-x-4">
+          <div className='w-full'>
+            <h3 className="text-lg font-semibold mb-2 text-center">Attach Cover Letter</h3>
+            <div className="flex justify-center space-x-4">
               <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                 View
               </button>
@@ -207,6 +220,19 @@ function MoreInfo() {
             </button>
           </div>
         </div>
+      </div>
+
+      {/* Footer Bar */}
+      <div className="mt-auto bg-gray-100 p-4 fixed bottom-0 w-full flex justify-between items-center">
+        <button onClick={() => {}} className="bg-gray-300 hover:bg-gray-400 text-black font-bold py-2 px-4 rounded">
+          <Link to="/CurrentApps" className="text-black">Back</Link>
+        </button>
+        <button onClick={handleDeleteApplication} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+          Delete
+        </button>
+        <button onClick={handleSaveAllEdits} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          Save All Edits
+        </button>
       </div>
     </div>
   );
