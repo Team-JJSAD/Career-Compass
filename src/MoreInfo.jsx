@@ -63,7 +63,7 @@ function MoreInfo() {
       <div className="bg-gray-800 text-white p-4 flex justify-between items-center">
         <div className="flex items-center">
           <div className="h-8 w-8 bg-gray-500 rounded-full"></div>
-          <span className="ml-2 text-xl font-semibold">Company Name</span>
+          <span className="ml-2 text-xl font-semibold">Career Compass</span>
         </div>
         <Button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
           <Link to="/" className="text-white">Logout</Link>
@@ -77,7 +77,7 @@ function MoreInfo() {
 
 
       {/* Content Bar */}
-      <div className="flex-grow container mx-auto p-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="flex-grow container mx-auto p-4 grid grid-cols-1 md:grid-cols-3 gap-4 pb-24">
         {/* First Card */}
         <div className="bg-white shadow rounded p-4">
           <div className="mb-4">
@@ -224,9 +224,9 @@ function MoreInfo() {
 
       {/* Footer Bar */}
       <div className="mt-auto bg-gray-100 p-4 fixed bottom-0 w-full flex justify-between items-center">
-        <button onClick={() => {}} className="bg-gray-300 hover:bg-gray-400 text-black font-bold py-2 px-4 rounded">
-          <Link to="/CurrentApps" className="text-black">Back</Link>
-        </button>
+        <Button onClick={() => {}} >
+          <Link to="/CurrentApps">Back</Link>
+        </Button>
         <button onClick={handleDeleteApplication} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
           Delete
         </button>
