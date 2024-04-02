@@ -4,6 +4,7 @@ import { Button } from '../components/ui/button.jsx';
 import './global.css';
 
 function MoreInfo() {
+  /* ---------------------------------- STATE --------------------------------- */
   // State for first card form fields
   const [companyName, setCompanyName] = useState('');
   const [applicationDeadline, setApplicationDeadline] = useState('');
@@ -16,6 +17,8 @@ function MoreInfo() {
   const [position, setPosition] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
+
+  /* ---------------------------- HANDLE FUNCTIONS ---------------------------- */
 
   // Handle saving edits
   const handleSaveEdits = () => {
@@ -41,6 +44,7 @@ function MoreInfo() {
     // Implement logic to save contacts here
   };
 
+  /* ----------------------------- RENDER THE PAGE ---------------------------- */
   return (
     <div className="flex flex-col h-screen">
       {/* Navbar */}
