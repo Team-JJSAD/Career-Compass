@@ -30,31 +30,31 @@ function MoreInfo() {
       followUpDate,
       jobDescription,
     });
-    // Placeholder for future backend integration
+    // TODO: Placeholder for future backend integration
   };
 
   // Handle saving notes edits
   const handleSaveNotes = () => {
     console.log({ notes });
-    // Placeholder for future backend integration
+    // TODO: Placeholder for future backend integration
   };
 
   // Handle saving contacts edits
   const handleSaveContacts = () => {
     console.log({ contactName, position, phoneNumber, email });
-    // Placeholder for future backend integration
+    // TODO: Placeholder for future backend integration
   };
 
     // Function to handle deleting an application
     const handleDeleteApplication = () => {
       console.log('Delete application');
-      // Placeholder for future backend integration
+      // TODO: Placeholder for future backend integration
     };
   
     // Function to handle saving all edits
     const handleSaveAllEdits = () => {
       console.log('Save all edits');
-      // Placeholder for future backend integration
+      // TODO: Placeholder for future backend integration
     };
 
   /* ----------------------------- RENDER THE PAGE ---------------------------- */
@@ -67,7 +67,7 @@ function MoreInfo() {
           <span className="ml-2 text-xl font-semibold">Career Compass</span>
         </div>
         <Button className="bg-red-500 hover:bg-red-700">
-          <Link to="/" className="text-white">Logout</Link>
+          <Link to="/">Logout</Link>
         </Button>
       </div>
 
