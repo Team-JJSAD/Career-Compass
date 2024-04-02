@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/button.jsx';
 import './global.css';
 
+
 function MoreInfo() {
   /* ---------------------------------- STATE --------------------------------- */
   // State for first card form fields
@@ -21,7 +22,7 @@ function MoreInfo() {
   /* ---------------------------- HANDLE FUNCTIONS ---------------------------- */
 
   // Handle saving edits
-  const handleSaveEdits = () => {
+  const handleSaveFirstCard = () => {
     // Implement save logic here
     console.log({
       companyName,
@@ -33,13 +34,13 @@ function MoreInfo() {
   };
 
   // Handle saving notes edits
-  const handleSaveNotesEdits = () => {
+  const handleSaveNotes = () => {
     console.log({ notes });
     // Placeholder for future backend integration
   };
 
   // Handle saving contacts edits
-  const handleSaveContactsEdits = () => {
+  const handleSaveContacts = () => {
     console.log({ contactName, position, phoneNumber, email });
     // Placeholder for future backend integration
   };
@@ -130,7 +131,7 @@ function MoreInfo() {
               onChange={(e) => setJobDescription(e.target.value)}
             ></textarea>
           </div>
-          <Button className="bg-blue-500 hover:bg-blue-700" onClick={handleSaveEdits}>
+          <Button className="bg-blue-500 hover:bg-blue-700" onClick={handleSaveFirstCard}>
             Save Edits
           </Button>
         </div>
@@ -179,7 +180,7 @@ function MoreInfo() {
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
             ></textarea>
-            <Button className="mt-4 bg-blue-500 hover:bg-blue-700" onClick={handleSaveNotesEdits}>
+            <Button className="mt-4 bg-blue-500 hover:bg-blue-700" onClick={handleSaveNotes}>
               Save Edits
             </Button>
           </div>
@@ -215,9 +216,9 @@ function MoreInfo() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={handleSaveContactsEdits}>
+            <Button className="bg-blue-500 hover:bg-blue-700" onClick={handleSaveContacts}>
               Save Edits
-            </button>
+            </Button>
           </div>
         </div>
       </div>
@@ -239,26 +240,3 @@ function MoreInfo() {
 }
 
 export default MoreInfo;
-
-
-// import { Link } from "react-router-dom";
-// import { Button } from "../components/ui/button.jsx";
-// import "./global.css";
-
-// function MoreInfo() {
-//   return (
-//     <>
-//       <h1>More Info</h1>
-//       <Button>
-//         {" "}
-//         <Link to="/CurrentApps">Home</Link>
-//       </Button>
-//       <Button>
-//         {" "}
-//         <Link to="/">Logout</Link>
-//       </Button>
-//     </>
-//   );
-// }
-
-// export default MoreInfo;
