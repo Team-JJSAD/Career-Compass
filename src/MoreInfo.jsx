@@ -65,7 +65,7 @@ function MoreInfo() {
           <div className="h-8 w-8 bg-gray-500 rounded-full"></div>
           <span className="ml-2 text-xl font-semibold">Career Compass</span>
         </div>
-        <Button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+        <Button className="bg-red-500 hover:bg-red-700">
           <Link to="/" className="text-white">Logout</Link>
         </Button>
       </div>
@@ -130,7 +130,7 @@ function MoreInfo() {
               onChange={(e) => setJobDescription(e.target.value)}
             ></textarea>
           </div>
-          <Button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={handleSaveEdits}>
+          <Button className="bg-blue-500 hover:bg-blue-700" onClick={handleSaveEdits}>
             Save Edits
           </Button>
         </div>
@@ -141,12 +141,12 @@ function MoreInfo() {
           <div className="w-full mb-8">
             <h3 className="text-lg font-semibold mb-2 text-center">Attach Resume</h3>
             <div className="flex justify-center space-x-4">
-              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+              <Button className="bg-blue-500 hover:bg-blue-700">
                 View
-              </button>
-              <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+              </Button>
+              <Button className="bg-green-500 hover:bg-green-700">
                 Upload
-              </button>
+              </Button>
             </div>
           </div>
 
@@ -154,12 +154,12 @@ function MoreInfo() {
           <div className='w-full'>
             <h3 className="text-lg font-semibold mb-2 text-center">Attach Cover Letter</h3>
             <div className="flex justify-center space-x-4">
-              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+              <Button className="bg-blue-500 hover:bg-blue-700">
                 View
-              </button>
-              <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+              </Button>
+              <Button className="bg-green-500 hover:bg-green-700">
                 Upload
-              </button>
+              </Button>
             </div>
           </div>
         </div>
@@ -179,9 +179,9 @@ function MoreInfo() {
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
             ></textarea>
-            <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={handleSaveNotesEdits}>
+            <Button className="mt-4 bg-blue-500 hover:bg-blue-700" onClick={handleSaveNotesEdits}>
               Save Edits
-            </button>
+            </Button>
           </div>
 
           {/* Contacts Section */}
@@ -227,12 +227,12 @@ function MoreInfo() {
         <Button onClick={() => {}} >
           <Link to="/CurrentApps">Back</Link>
         </Button>
-        <button onClick={handleDeleteApplication} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+        <Button onClick={handleDeleteApplication} className="bg-red-500 hover:bg-red-700">
           Delete
-        </button>
-        <button onClick={handleSaveAllEdits} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        </Button>
+        <Button onClick={handleSaveAllEdits} className="bg-blue-500 hover:bg-blue-700">
           Save All Edits
-        </button>
+        </Button>
       </div>
     </div>
   );
