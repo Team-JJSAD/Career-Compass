@@ -314,7 +314,7 @@ function MoreInfo() {
           onClick={handleDeleteApplication}
           className="bg-red-500 hover:bg-red-700"
         >
-          Delete
+          Delete this Application
         </Button>
         <Button
           onClick={handleSaveAllEdits}

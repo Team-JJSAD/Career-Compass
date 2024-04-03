@@ -4,10 +4,16 @@ import "./global.css";
 import { Input } from "../components/ui/input.jsx";
 import { Textarea } from "../components/ui/textarea.jsx";
 import { Label } from "../components/ui/label.jsx";
+import { useToast } from "../components/ui/use-toast.js";
 
 function AddApp() {
+  const { toast } = useToast();
   const handleSubmit = (e) => {
     e.preventDefault();
+    toast({
+      title: "Success!",
+      description: "Your application has been saved.",
+    });
     // Handle form submission and data addition to CurrentApplications
   };
 
@@ -90,7 +96,7 @@ function AddApp() {
           </Link>
         </Button>
         <Button
-          type="submit"
+          onClick={handleSubmit}
           className="bg-teal-500 hover:bg-teal-700"
         >
           Submit
