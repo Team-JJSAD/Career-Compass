@@ -1,11 +1,25 @@
 import express from 'express';
-import cookieParser from 'cookie-parser';
-
+import cors from 'cors';
+import { createUser, verifyUser, loggedIn, resetPassword } from './controllers/usercontroller.js'
+import mongoose from 'mongoose';
 const app = express();
 
+
+mongoose.connect('mymongodb', {
+  useNewUrlParser:true,
+  useUnifiedTopology:true,
+})
 // Middleware
 app.use(express.json());
-app.use(cookieParser());
+app.use(cors({
+  origin: 'http://localhost:5173',
+  credentials: true,
+}));
+
+
+app.post('/register', createUser)
+app.post('/login', verifyUser, loggedIn);
+app.post('/ForgotPassword', resetPassword)
 
 // Route handler
 app.get('/', (req, res) => {
