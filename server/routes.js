@@ -3,7 +3,7 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import { User } from 'lucide-react';
 const app = express();
-// import cookieParser from 'cookie-parser';
+import cookieParser from 'cookie-parser';
 
 import UserController from './controllers/usercontroller.js'
 import ApplicationController from './controllers/applicationController.js';
@@ -16,13 +16,13 @@ const { createUser, verifyUser, loggedIn, resetPassword } = UserController
 mongoose.connect('mongodb://localhost:27017', {
   useNewUrlParser:true,
   useUnifiedTopology:true,
-  dbName: "Career-Compass"
+  dbName: "Career-Compass2"
 })
 mongoose.connection.once("open", () => {
   console.log("Connected to Database");
 });
 // Middleware
-// app.use(cookieParser())
+app.use(cookieParser())
 app.use(express.json());
 app.use(cors({
   origin: 'http://localhost:5173',

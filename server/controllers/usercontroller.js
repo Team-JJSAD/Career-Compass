@@ -1,31 +1,35 @@
 // import User from './userModel.js'
 import User from './models/userModelMongo.js'
-import db from './models/userModel.js'
+// import db from './models/userModel.js'
 
 const UserController = {};
 
-const insertUserIntoPostgreSQL = (firstName, lastName, email) => {
-  const queryText = `INSERT INTO Users(FirstName, LastName, Email)
-                     VALUES($1, $2, $3)
-                     RETURNING UserID;`; // Return the generated UserID
+// const insertUserIntoPostgreSQL = (firstName, lastName, email) => {
+//   const queryText = `INSERT INTO Users(FirstName, LastName, Email)
+//                      VALUES($1, $2, $3)
+//                      RETURNING UserID;`; // Return the generated UserID
 
-  return db.query(queryText, [firstName, lastName, email])
-    .then(res => res.rows[0].UserID) // Extract UserID from the result
-    .catch(err => {
-      console.error('Error inserting user into PostgreSQL:', err);
-      throw err;
-    });
-};
+//   return db.query(queryText, [firstName, lastName, email])
+//     .then(res => res.rows[0].UserID) // Extract UserID from the result
+//     .catch(err => {
+//       console.error('Error inserting user into PostgreSQL:', err);
+//       throw err;
+//     });
+// };
 
 
 
 // usercontroller.js
 
 UserController.createUser = async (req, res, next) => {
+  console.log('in UserController.createUser');
+  console.log('req.body: ', req.body);
   try {
+    const { email, password } = req.body;
     // Create a new user in the database
+    console.log(email)
     const user = await User.create({ email, password });
-    return newUser;
+    return res.status(200).json({ user: user });
   } catch (error) {
     console.error('Error creating user:', error);
     throw error;
@@ -62,8 +66,8 @@ UserController.createUser = async (req, res, next) => {
 
   UserController.verifyUser = async (req, res, next) => {
     try {
-      const { username, password } = req.body;
-      const user = await User.findOne({ username: username });
+      const { email, password } = req.body;
+      const user = await User.findOne({ username: email });
   
       if (!user) return res.status(404).json({ error: "User not in database" });
       else if(user.password !== password){
@@ -71,7 +75,7 @@ UserController.createUser = async (req, res, next) => {
        }else {
         // Return the username in the response
         res.cookie("SSID", user._id, { httpOnly: true });
-        return res.status(200).json({ username: user.username });
+        return res.status(200).json({ username: user.email });
       }
     } catch (err) {
       return next({

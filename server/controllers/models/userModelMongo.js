@@ -10,11 +10,11 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  postgresUserId: {
-    type: Number,
-    required: true,
-    unique: true
-  },
+  // postgresUserId: {
+  //   type: Number,
+  //   required: true,
+  //   unique: true
+  // },
   
 });
 
