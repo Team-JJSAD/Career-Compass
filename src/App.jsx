@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Toaster } from '../components/ui/toaster.jsx';
 
 // Import your page components
 import Splash from "./Splash.jsx";
@@ -21,6 +22,7 @@ function App() {
         <Route path="/MoreInfo" element={<MoreInfo />} />
         {/* Add more routes for other pages */}
       </Routes>
+      <Toaster />
     </Router>
   );
 }

@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/button.jsx';
-// import { useToast } from '../components/ui/use-toast.js';
+import { useToast } from '../components/ui/use-toast.js';
 import './global.css';
 
 
 function MoreInfo() {
-  // const { toast } = useToast();
+  const { toast } = useToast();
 
   /* ---------------------------------- STATE --------------------------------- */
   // State for first card form fields
@@ -33,22 +33,30 @@ function MoreInfo() {
       followUpDate,
       jobDescription,
     });
-    // toast({
-    //   title: "Saved edits successfully",
-    //   desscription: "Your application information has been saved.",
-    // });
+    toast({
+      title: "Success!",
+      description: "Your application information has been saved.",
+    });
     // TODO: Placeholder for future backend integration
   };
 
   // Handle saving notes edits
   const handleSaveNotes = () => {
     console.log({ notes });
+    toast({
+      title: "Success!",
+      description: "Your notes have been saved.",
+    });
     // TODO: Placeholder for future backend integration
   };
 
   // Handle saving contacts edits
   const handleSaveContacts = () => {
     console.log({ contactName, position, phoneNumber, email });
+    toast({
+      title: "Success!",
+      description: "Your contacts have been saved.",
+    });
     // TODO: Placeholder for future backend integration
   };
 
@@ -61,6 +69,10 @@ function MoreInfo() {
     // Function to handle saving all edits
     const handleSaveAllEdits = () => {
       console.log('Save all edits');
+      toast({
+        title: "Success!",
+        description: "All edits have been saved.",
+      });
       // TODO: Placeholder for future backend integration
     };
 
