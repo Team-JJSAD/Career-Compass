@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import axiosInstance from "./axiosInstance";
 import { Button } from "../components/ui/button.jsx";
 import "./global.css";
 import { Input } from "../components/ui/input.jsx";
@@ -40,42 +39,57 @@ function AddApp() {
         Add Application
       </div>
 
-      {/* Form */}
-      <div className="container mx-auto">
-        <form onSubmit={handleSubmit}>
-
-          {/* General information */}
+      {/* Cards */}
+      <div className="container mx-auto px-4 py-6 grid grid-cols-5 gap-4">
+        {/* First Card */}
+        <div className="col-span-1 bg-white p-4 shadow rounded-lg">
           <div className="mb-4">
             <Label htmlFor="companyName">Company Name:</Label>
-            <Input type="text" id="companyName" name="companyName" required />
+            <div className="mt-1">{/* Display company name here */}</div>
           </div>
+          <div className="mb-4">
+            <Label htmlFor="positionTitle">Position Title:</Label>
+            <div className="mt-1">{/* Display position title here */}</div>
+          </div>
+          <div className="mb-4">
+            <Label htmlFor="appDeadline">Application Deadline:</Label>
+            <div className="mt-1">{/* Display application deadline here */}</div>
+          </div>
+          <div>
+            <Label htmlFor="followUpDate">Follow-Up Date:</Label>
+            <div className="mt-1">{/* Display follow-up date here */}</div>
+          </div>
+        </div>
 
-          <div className="mb-4">
-            <Label htmlFor="companyName">Position:</Label>
-            <Input type="text" id="position" name="position" required />
-          </div>
-
-          <div className="mb-4">
-            <Label htmlFor="appDate">Application Date:</Label>
-            <Input type="date" id="appDate" name="appDate" required />
-          </div>
-          <div className="mb-4">
-            <Label htmlFor="followUpDate">Follow up date:</Label>
-            <Input type="date" id="followUpDate" name="followUpDate" required />
-          </div>
+        {/* Second Card */}
+        <div className="col-span-4 bg-white p-4 shadow rounded-lg">
           <div className="mb-4">
             <Label htmlFor="jobDescription">Job Description:</Label>
-            <Textarea id="jobDescription" name="jobDescription" rows={4} />
+            <Textarea id="jobDescription" name="jobDescription" rows={4} readOnly />
           </div>
-
-          {/* Notes */}
-          <div className="mb-4">
+          <div>
             <Label htmlFor="notes">Notes:</Label>
-            <Textarea id="notes" name="notes" rows={4} />
+            <Textarea id="notes" name="notes" rows={4} readOnly />
           </div>
+        </div>
+      </div>
 
-          <Button className="mb-6" type="submit">Submit</Button>
-        </form>
+      {/* Buttons Centered Below Cards */}
+      <div className="flex justify-center gap-4 mt-4">
+        <Button asChild>
+          <Link
+            to="/CurrentApps"
+            className="text-white bg-gray-500 hover:bg-gray-700 rounded px-4 py-2"
+          >
+            Return to home
+          </Link>
+        </Button>
+        <Button
+          type="submit"
+          className="bg-blue-500 hover:bg-blue-700 text-white rounded px-4 py-2"
+        >
+          Submit
+        </Button>
       </div>
     </>
   );
