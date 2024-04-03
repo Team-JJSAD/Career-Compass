@@ -49,6 +49,9 @@ function AddApp() {
       <div className="container mx-auto px-4 py-6 grid grid-cols-[220px_1fr] gap-4">
         {/* First Card */}
         <div className="bg-white p-4 shadow rounded-lg">
+          <h2 className="text-xl font-bold mb-4">
+            Application Info
+          </h2>
           <div className="mb-4">
             <Label htmlFor="companyName">Company Name:</Label>
             <Input type="text" id="companyName" name="companyName" required />
@@ -74,6 +77,9 @@ function AddApp() {
 
         {/* Second Card - Takes remaining space */}
         <div className="bg-white p-4 shadow rounded-lg">
+        <h2 className="text-xl font-bold mb-4">
+            Application Notes
+          </h2>
           <div className="mb-4">
             <Label htmlFor="jobDescription">Job Description:</Label>
             <Textarea id="jobDescription" name="jobDescription" rows={4} />
