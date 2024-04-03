@@ -1,15 +1,23 @@
 import express from 'express';
 import cors from 'cors';
-import { createUser, verifyUser, loggedIn, resetPassword } from './controllers/usercontroller.js'
+// import { createUser, verifyUser, loggedIn, resetPassword } from './controllers/usercontroller.js'
+import UserController from './controllers/usercontroller.js'
+const { createUser, verifyUser, loggedIn, resetPassword } = UserController
 import mongoose from 'mongoose';
+import { User } from 'lucide-react';
 const app = express();
+// const cookieParser = require('cookie-parser');
 
 
-mongoose.connect('mymongodb', {
+mongoose.connect('mongodb://localhost/todolist', {
   useNewUrlParser:true,
   useUnifiedTopology:true,
 })
+mongoose.connection.once("open", () => {
+  console.log("Connected to Database");
+});
 // Middleware
+// app.use(cookieParser())
 app.use(express.json());
 app.use(cors({
   origin: 'http://localhost:5173',

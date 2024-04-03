@@ -1,4 +1,5 @@
-import User from './userModel.js'
+// import User from './userModel.js'
+import User from './models/userModelMongo.js'
 
 const UserController = {};
 
@@ -7,7 +8,7 @@ UserController.createUser = async (req, res, next) => {
     try {
       const user = await User.create({ username, password });
       res.cookie("SSID", user._id, { httpOnly: true });
-      return res.status(200).json({ user: user });
+      return res.status(200).json({ success: true, user: user });
     } catch (err) {
       return next({
         message: "Error in the userController.createUser",
@@ -75,4 +76,4 @@ UserController.createUser = async (req, res, next) => {
     }
   };
 
-  module.exports = UserController;
+ export default UserController
