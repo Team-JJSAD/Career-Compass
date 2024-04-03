@@ -91,7 +91,7 @@ function AddApp() {
         </Button>
         <Button
           type="submit"
-          className="bg-blue-500 hover:bg-blue-700 text-white rounded px-4 py-2"
+          className="bg-teal-500 hover:bg-teal-700"
         >
           Submit
         </Button>
