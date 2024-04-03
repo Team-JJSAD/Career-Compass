@@ -157,16 +157,20 @@ function CurrentApps() {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {filteredData.map((row) => (
-            <TableRow key={row.id}>
-              {columns.map((column) => (
-                <TableCell key={column.accessorKey} className="text-center">
-                  {column.cell ? column.cell({ row }) : row[column.accessorKey]}
-                </TableCell>
-              ))}
-            </TableRow>
-          ))}
-        </TableBody>
+  {filteredData.map((row) => (
+    <TableRow key={row.id}>
+      {columns.map((column) => (
+        <TableCell
+          key={column.accessorKey}
+          // Apply the custom styles conditionally
+          className={`text-center ${column.accessorKey === 'company' ? 'font-semibold text-lg' : ''}`}
+        >
+          {column.cell ? column.cell({ row }) : row[column.accessorKey]}
+        </TableCell>
+      ))}
+    </TableRow>
+  ))}
+</TableBody>
       </Table>
     </>
   );
