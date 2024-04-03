@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../components/ui/button.jsx";
+import { Input } from "../components/ui/input.jsx";
+import { Textarea } from "../components/ui/textarea.jsx";
+import { Label } from "../components/ui/label.jsx";
 import { useToast } from "../components/ui/use-toast.js";
 import "./global.css";
 
@@ -113,83 +116,61 @@ function MoreInfo() {
             Application Info
           </h2>
           <div className="mb-4">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="companyName"
-            >
-              Company Name
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="companyName"
+            <Label htmlFor="companyName">Company Name:</Label>
+            <Input
               type="text"
-              placeholder="Enter company name"
+              id="companyName"
+              name="companyName"
               value={companyName}
               onChange={(e) => setCompanyName(e.target.value)}
             />
           </div>
+
           <div className="mb-4">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="position"
-            >
-              Position Title
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="position"
+            <Label htmlFor="positionTitle">Position Title:</Label>
+            <Input
               type="text"
-              placeholder="Enter position title"
+              id="positionTitle"
+              name="positionTitle"
               value={positionTitle}
               onChange={(e) => setPositionTitle(e.target.value)}
             />
           </div>
+
           <div className="mb-4">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="applicationDeadline"
-            >
-              Application Deadline
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="applicationDeadline"
+            <Label htmlFor="applicationDeadline">Application Deadline:</Label>
+            <Input
               type="date"
+              id="applicationDeadline"
+              name="applicationDeadline"
               value={applicationDeadline}
               onChange={(e) => setApplicationDeadline(e.target.value)}
             />
           </div>
+
           <div className="mb-4">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="followUpDate"
-            >
-              Follow-Up Date
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="followUpDate"
+            <Label htmlFor="followUpDate">Follow-Up Date:</Label>
+            <Input
               type="date"
+              id="followUpDate"
+              name="followUpDate"
               value={followUpDate}
               onChange={(e) => setFollowUpDate(e.target.value)}
             />
           </div>
+
           <div className="mb-4">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="jobDescription"
-            >
-              Job Description
-            </label>
-            <textarea
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="jobDescription"
-              rows="3"
-              placeholder="Enter job description"
+            <Label htmlFor="jobDescription">Job Description:</Label>
+            <Textarea 
+              id="jobDescription" 
+              name="jobDescription" 
               value={jobDescription}
               onChange={(e) => setJobDescription(e.target.value)}
-            ></textarea>
+              rows={4} 
+            />
           </div>
+
+
           <Button
             className="bg-blue-500 hover:bg-blue-700"
             onClick={handleSaveFirstCard}

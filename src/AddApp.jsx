@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { Button } from "../components/ui/button.jsx";
-import "./global.css";
 import { Input } from "../components/ui/input.jsx";
 import { Textarea } from "../components/ui/textarea.jsx";
 import { Label } from "../components/ui/label.jsx";
 import { useToast } from "../components/ui/use-toast.js";
+import "./global.css";
 
 function AddApp() {
   const { toast } = useToast();
