@@ -11,6 +11,7 @@ function MoreInfo() {
   /* ---------------------------------- STATE --------------------------------- */
   // State for first card form fields
   const [companyName, setCompanyName] = useState('');
+  const [positionTitle, setPositionTitle] = useState('');
   const [applicationDeadline, setApplicationDeadline] = useState('');
   const [followUpDate, setFollowUpDate] = useState('');
   const [jobDescription, setJobDescription] = useState('');
@@ -123,6 +124,19 @@ function MoreInfo() {
               placeholder="Enter company name"
               value={companyName}
               onChange={(e) => setCompanyName(e.target.value)}
+            />
+          </div>
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="position">
+              Position Title
+            </label>
+            <input
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="position"
+              type="text"
+              placeholder="Enter position title"
+              value={positionTitle}
+              onChange={(e) => setPositionTitle(e.target.value)}
             />
           </div>
           <div className="mb-4">
