@@ -8,6 +8,7 @@ import Register from "./Register.jsx";
 import ForgotPassword from "./ForgotPassword.jsx";
 import CurrentApps from "./CurrentApps.jsx";
 import MoreInfo from "./MoreInfo.jsx";
+import AddApp from "./AddApp.jsx"
 // ... import other page components
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/ForgotPassword" element={<ForgotPassword />} />
         <Route path="/CurrentApps" element={<CurrentApps />} />
         <Route path="/MoreInfo" element={<MoreInfo />} />
+        <Route path="/AddApp" element={<AddApp />} />
         {/* Add more routes for other pages */}
       </Routes>
       <Toaster />
