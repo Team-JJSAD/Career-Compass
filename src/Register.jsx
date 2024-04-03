@@ -25,9 +25,12 @@ function Register() {
 
     if (!isUsernameEmpty && !isPasswordEmpty && !isConfirmPasswordEmpty && password === confirmPassword) {
       try {
-        const response = await axiosInstance.post('/register', { username, password });
-        if (response.data.success) {
-          navigate('/CurrentApps');
+        const response = await axiosInstance.post('/register', { username, password});
+        console.log('response.data: ', response.data);
+        
+        if (response.data) {
+          console.log('Registration was successful')
+          navigate('/Login');
         } else {
           console.error('Registration failed:', response.data.message);
         }
