@@ -21,9 +21,9 @@ function MoreInfo() {
   // State for third card form fields
   const [notes, setNotes] = useState("");
   const [contactName, setContactName] = useState("");
-  const [position, setPosition] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [email, setEmail] = useState("");
+  const [contactPosition, setContactPosition] = useState("");
+  const [contactPhoneNumber, setContactPhoneNumber] = useState("");
+  const [contactEmail, setContactEmail] = useState("");
 
   /* ---------------------------- HANDLE FUNCTIONS ---------------------------- */
 
@@ -82,7 +82,6 @@ function MoreInfo() {
   /* ----------------------------- RENDER THE PAGE ---------------------------- */
   return (
     <div className="flex flex-col h-dvh">
-
       {/* Nav Bar */}
       <nav className="flex items-center justify-between bg-gray-800 py-4 px-6">
         <div className="flex-grow text-center">
@@ -109,10 +108,8 @@ function MoreInfo() {
         More Info
       </div>
 
-
       {/* Content Bar */}
       <div className="flex-grow container mx-auto p-4 grid grid-cols-1 md:grid-cols-3 gap-4 pb-24">
-
         {/* First Card */}
         <div className="bg-white shadow rounded p-4">
           <h2 className="text-xl font-bold text-center mb-4">
@@ -170,12 +167,12 @@ function MoreInfo() {
           {/* Job Description */}
           <div className="mb-4">
             <Label htmlFor="jobDescription">Job Description:</Label>
-            <Textarea 
-              id="jobDescription" 
-              name="jobDescription" 
+            <Textarea
+              id="jobDescription"
+              name="jobDescription"
               value={jobDescription}
               onChange={(e) => setJobDescription(e.target.value)}
-              rows={4} 
+              rows={4}
             />
           </div>
           <Button
@@ -186,14 +183,13 @@ function MoreInfo() {
           </Button>
         </div>
 
-
         {/* Second Card for Attach Resume and Cover Letter */}
         <div className="bg-white shadow rounded p-4 flex flex-col items-center">
-          <h2 className="text-xl font-bold text-center mb-4">
+          <h2 className="text-xl font-bold text-center mb-16">
             Application Documents
           </h2>
           {/* Attach Resume */}
-          <div className="w-full mb-8">
+          <div className="w-full mb-16">
             <h3 className="text-lg font-semibold mb-2 text-center">
               Attach Resume
             </h3>
@@ -206,7 +202,7 @@ function MoreInfo() {
           </div>
 
           {/* Attach Cover Letter */}
-          <div className="w-full">
+          <div className="w-full mb-12">
             <h3 className="text-lg font-semibold mb-2 text-center">
               Attach Cover Letter
             </h3>
@@ -219,7 +215,6 @@ function MoreInfo() {
           </div>
         </div>
 
-
         {/* Third Card for Notes and Contacts */}
         <div className="bg-white shadow rounded p-4">
           <h2 className="text-xl font-bold text-center mb-4">
@@ -228,33 +223,14 @@ function MoreInfo() {
 
           {/* Notes Section */}
           <div className="mb-4">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="notes"
-            >
-              Notes
-            </label>
-            <textarea
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            <Label htmlFor="notes">Notes:</Label>
+            <Textarea
               id="notes"
-              rows="3"
-              placeholder="Enter notes"
+              name="notes"
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
-            ></textarea>
-
-            {/* Notes */}
-            <div className="mb-4">
-              <Label htmlFor="notes">Notes:</Label>
-              <Textarea 
-                id="notes" 
-                name="notes" 
-                value={notes}
-                onChange={(e) => setNotes(e.target.value)}
-                rows={4} 
-              />
-            </div>
-
+              rows={4}
+            />
             <Button
               onClick={handleSaveNotes}
               className="mt-4 bg-blue-500 hover:bg-blue-700"
@@ -264,42 +240,64 @@ function MoreInfo() {
           </div>
 
           {/* Contacts Section */}
-          <div className="mb-4">
-            <h3 className="text-lg font-semibold mb-2">Contacts</h3>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-2"
-              type="text"
-              placeholder="Name"
-              value={contactName}
-              onChange={(e) => setContactName(e.target.value)}
-            />
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-2"
-              type="text"
-              placeholder="Position"
-              value={position}
-              onChange={(e) => setPosition(e.target.value)}
-            />
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-2"
-              type="tel"
-              placeholder="Phone Number"
-              value={phoneNumber}
-              onChange={(e) => setPhoneNumber(e.target.value)}
-            />
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-4"
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
+          <div className="mb-4 flex flex-col">
+
+            {/* Contact Name */}
+            <div className="mb-2 ">
+              <Label htmlFor="contactName">Contact Name:</Label>
+              <Input
+                type="text"
+                id="contactName"
+                name="contactName"
+                value={contactName}
+                onChange={(e) => setContactName(e.target.value)}
+              />
+            </div>
+
+            {/* Contact Position */}
+            <div className="mb-2">
+              <Label htmlFor="contactPosition">Contact Position:</Label>
+              <Input
+                type="text"
+                id="contactPosition"
+                name="contactPosition"
+                value={contactPosition}
+                onChange={(e) => setContactPosition(e.target.value)}
+              />
+            </div>
+
+
+            {/* Contact Phone Number */}
+            <div className="mb-2">
+              <Label htmlFor="contactPhoneNumber">Contact Phone Number:</Label>
+              <Input
+                type="text"
+                id="contactPhoneNumber"
+                name="contactPhoneNumber"
+                value={contactPhoneNumber}
+                onChange={(e) => setContactPhoneNumber(e.target.value)}
+              />
+            </div>
+
+            {/* Contact E-mail */}
+            <div className="mb-2">
+              <Label htmlFor="contactEmail">Contact E-mail:</Label>
+              <Input
+                type="email"
+                id="contactEmail"
+                name="contactEmail"
+                value={contactEmail}
+                onChange={(e) => setContactEmail(e.target.value)}
+              />
+            </div>
+            <div>
             <Button
-              className="bg-blue-500 hover:bg-blue-700"
+              className="bg-blue-500 hover:bg-blue-700 mt-2"
               onClick={handleSaveContacts}
             >
               Save Edits
             </Button>
+            </div>
           </div>
         </div>
       </div>
