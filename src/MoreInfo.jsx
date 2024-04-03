@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/button.jsx';
+// import { useToast } from '../components/ui/use-toast.js';
 import './global.css';
 
 
 function MoreInfo() {
+  // const { toast } = useToast();
+
   /* ---------------------------------- STATE --------------------------------- */
   // State for first card form fields
   const [companyName, setCompanyName] = useState('');
@@ -30,6 +33,10 @@ function MoreInfo() {
       followUpDate,
       jobDescription,
     });
+    // toast({
+    //   title: "Saved edits successfully",
+    //   desscription: "Your application information has been saved.",
+    // });
     // TODO: Placeholder for future backend integration
   };
 
