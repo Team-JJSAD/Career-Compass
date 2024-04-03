@@ -14,66 +14,91 @@ import { useState, useEffect } from "react";
 import "./global.css";
 
 function CurrentApps() {
-  // const [data, setData] = useState([]);
+  const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await axiosInstance.get("/api/applications");
-  //       setData(response.data);
-  //     } catch (error) {
-  //       console.error("Error fetching data:", error);
-  //     }
-  //   };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axiosInstance.get("/applications");
+        setData(response.data);
+        console.log('Data from backend: ', response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, []);
 
-  //   fetchData();
-  // }, []);
-
-  const [data, setData] = useState([
-    {
-      id: 1,
-      company: "Acme Inc.",
-      appDate: "2023-06-01",
-      followUpDate: "2023-06-10",
-      resume: true,
-      coverLetter: false,
-      applyType: true,
-      moreInfo: "Additional info for Acme Inc.",
-    },
-    {
-      id: 2,
-      company: "Beta Corp.",
-      appDate: "2023-06-05",
-      followUpDate: "2023-06-15",
-      resume: true,
-      coverLetter: true,
-      applyType: false,
-      moreInfo: "Additional info for Beta Corp.",
-    },
-    {
-      id: 3,
-      company: "Gamma LLC",
-      appDate: "2023-06-10",
-      followUpDate: "2023-06-20",
-      resume: false,
-      coverLetter: true,
-      applyType: true,
-      moreInfo: "Additional info for Gamma LLC",
-    },
-  ]);
+  // // TESTING - MOCK DATA
+  // const [data, setData] = useState([
+  //   {
+  //     id: 1,
+  //     company: "Acme Inc.",
+  //     appDate: "2023-06-01",
+  //     followUpDate: "2023-06-10",
+  //     resume: true,
+  //     coverLetter: false,
+  //     applyType: true,
+  //     moreInfo: "Additional info for Acme Inc.",
+  //   },
+  //   {
+  //     id: 2,
+  //     company: "Beta Corp.",
+  //     appDate: "2023-06-05",
+  //     followUpDate: "2023-06-15",
+  //     resume: true,
+  //     coverLetter: true,
+  //     applyType: false,
+  //     moreInfo: "Additional info for Beta Corp.",
+  //   },
+  //   {
+  //     id: 3,
+  //     company: "Gamma LLC",
+  //     appDate: "2023-06-10",
+  //     followUpDate: "2023-06-20",
+  //     resume: false,
+  //     coverLetter: true,
+  //     applyType: true,
+  //     moreInfo: "Additional info for Gamma LLC",
+  //   },
+  // ]);
+//   appdate
+// : 
+// "2024-04-03"
+// applicationid
+// : 
+// 2
+// companyname
+// : 
+// "JJSAD Corp."
+// contact
+// : 
+// ""
+// followupdate
+// : 
+// "2024-04-10"
+// jobdescription
+// : 
+// "asdasd"
+// notes
+// : 
+// "asdasd"
+// userid
+// : 
+// null
 
   const columns = [
     {
-      accessorKey: "company",
+      accessorKey: "companyname",
       header: "Company/Name",
     },
     {
-      accessorKey: "appDate",
+      accessorKey: "appdate",
       header: "App Date",
     },
     {
-      accessorKey: "followUpDate",
+      accessorKey: "followupdate",
       header: "Follow Up Date",
     },
     {
@@ -105,7 +130,7 @@ function CurrentApps() {
   ];
 
   const filteredData = data.filter((app) =>
-    app.company.toLowerCase().includes(searchTerm.toLowerCase())
+    app.companyname.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (

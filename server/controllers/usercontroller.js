@@ -1,7 +1,9 @@
 // import User from './userModel.js'
 import User from './models/userModelMongo.js'
+import db from './models/userModel.js'
 
 const UserController = {};
+
 
 UserController.createUser = async (req, res, next) => {
     // testing

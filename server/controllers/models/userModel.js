@@ -1,4 +1,4 @@
-import { readdirSync } from 'fs';
+// import { readdirSync } from 'fs';
 import pg from 'pg';
 const { Pool } = pg;
 const connectionString = 'postgres://mjojsjld:DbgF0TOPRTz23Ozw4CaSN4DMKL10t_0I@bubble.db.elephantsql.com/mjojsjld';
@@ -14,15 +14,17 @@ const pool = new Pool({
 
 const createUsersTable = () => {
   const queryText =
-      `CREATE TABLE IF NOT EXISTS Users (
-          UserID SERIAL PRIMARY KEY,
-          UserName VARCHAR(255) UNIQUE NOT NULL,
-          FirstName VARCHAR(255) NOT NULL,
-          LastName VARCHAR(255) NOT NULL,
-          Email VARCHAR(255) UNIQUE NOT NULL,
-          Password VARCHAR(255) NOT NULL,
-          DateCreated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-      )`;
+      `CREATE TABLE Applications (
+        ApplicationID SERIAL PRIMARY KEY,
+        UserID INTEGER,
+        CompanyName VARCHAR(255) NOT NULL,
+        AppDate DATE NOT NULL,
+        FollowUpDate DATE,
+        JobDescription TEXT,
+        Notes TEXT,
+        Contact VARCHAR(255),
+        FOREIGN KEY (UserID) REFERENCES Users(UserID)
+      );`;
 
   return pool.query(queryText)
       .then((res) => {
@@ -36,20 +38,21 @@ const createUsersTable = () => {
       });
 };
 
+// createUsersTable();
+
 const createApplicationsTable = () => {
   const query = 
-          `CREATE TABLE IF NOT EXISTS Applications (
-            ApplicationID SERIAL PRIMARY KEY,
-            UserID INTEGER NOT NULL,
-            JobID INTEGER NOT NULL,
-            ContactID INTEGER NOT NULL,
-            Status VARCHAR(255) NOT NULL,
-            DateCreated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-            FOREIGN KEY (JobID) REFERENCES Jobs(JobID),
-            FOREIGN KEY (UserID) REFERENCES Users(UserID),
-            FOREIGN KEY (ContactID) REFERENCES Contacts(ContactID)
+  `CREATE TABLE Applications (
+    ApplicationID SERIAL PRIMARY KEY,
+    UserID INTEGER,
+    CompanyName VARCHAR(255) NOT NULL,
+    AppDate VARCHAR(255) NOT NULL,
+    FollowUpDate VARCHAR(255),
+    JobDescription TEXT,
+    Notes TEXT,
+    Contact VARCHAR(255),
+    FOREIGN KEY (UserID) REFERENCES Users(UserID)
   )`;
-
   return pool.query(query)
     .then((res) => {
       console.log(res);
@@ -59,70 +62,7 @@ const createApplicationsTable = () => {
     });
 };
 
-const createContactsTable = () => {
-  const query =
-          `CREATE TABLE IF NOT EXISTS Contacts (
-            ContactID SERIAL PRIMARY KEY,
-            CompanyID INTEGER NOT NULL,
-            UserID INTEGER NOT NULL,
-            FirstName VARCHAR(255) NOT NULL,
-            LastName VARCHAR(255) NOT NULL,
-            Position VARCHAR(255),
-            Phone_Number INTEGER,
-            Email VARCHAR(255),
-            Notes VARCHAR(255),
-            FOREIGN KEY (CompanyID) REFERENCES Companies(CompanyID),
-            FOREIGN KEY (UserID) REFERENCES Users(UserID)
-          )`;
-  
-  return pool.query(query)
-  .then((res) => {
-    console.log(res);
-  })
-  .catch((err) => {
-    console.error(err);
-  });
-};
-
-const createJobsTable = () => {
-  const query = 
-          `CREATE TABLE IF NOT EXISTS Jobs (
-            JobID SERIAL PRIMARY KEY,
-            CompanyID INTEGER NOT NULL,
-            Position VARCHAR(255) NOT NULL,
-            Applied_Date VARCHAR(255) NOT NULL,
-            Follow_Up_Date VARCHAR (255) NOT NULL,
-            Description TEXT DEFAULT 'No description provided',
-            Quick_Apply BOOLEAN NOT NULL DEFAULT FALSE,
-            Resume INTEGER,
-            Cover_Letter BOOLEAN DEFAULT FALSE,
-            FOREIGN KEY (CompanyID) REFERENCES Companies(CompanyID)
-          )`
-      
-  return pool.query(query)
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((err) => {
-      console.error(err);
-    })
-};
-
-const createCompaniesTable = () => {
-  const query = 
-          `CREATE TABLE IF NOT EXISTS Companies (
-            CompanyID SERIAL PRIMARY KEY,
-            Name VARCHAR(255) NOT NULL
-          )`;
-
-  return pool.query(query)
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((err) => {
-      console.error(err);
-    })
-};
+// createApplicationsTable();
 
 const addForeignKeyConstraints = async () => {
   const alterCompanies = 
@@ -157,17 +97,6 @@ const dropColumn = async (tableName, columnName) => {
     console.error('Error dropping column:', err);
   }
 };
-
-const createAllTables = async () => {
-  await createUsersTable();
-  await createCompaniesTable();
-  await createJobsTable();
-  await createContactsTable();
-  await createApplicationsTable();
-  await addForeignKeyConstraints();
-};
-
-// createAllTables();
 
 const deleteTable = async (tableName) => {
   const queryText = `DROP TABLE IF EXISTS ${tableName};`;

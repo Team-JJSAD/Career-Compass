@@ -1,13 +1,17 @@
 import express from 'express';
 import cors from 'cors';
-// import { createUser, verifyUser, loggedIn, resetPassword } from './controllers/usercontroller.js'
-import UserController from './controllers/usercontroller.js'
-const { createUser, verifyUser, loggedIn, resetPassword } = UserController
 import mongoose from 'mongoose';
 import { User } from 'lucide-react';
 const app = express();
 // const cookieParser = require('cookie-parser');
 
+import UserController from './controllers/usercontroller.js'
+import ApplicationController from './controllers/applicationController.js';
+
+const { getApplications } = ApplicationController;
+const { createApplication } = ApplicationController;
+const { createUser, verifyUser, loggedIn, resetPassword } = UserController
+// import { createUser, verifyUser, loggedIn, resetPassword } from './controllers/usercontroller.js'
 
 mongoose.connect('mongodb://localhost:27017', {
   useNewUrlParser:true,
@@ -34,6 +38,8 @@ app.post('/ForgotPassword', resetPassword)
 app.get('/', (req, res) => {
   res.send('Hello from the server!');
 });
+app.post('/applications', createApplication);
+app.get('/applications', getApplications);
 
 // Start the server
 const port = process.env.PORT || 3000;

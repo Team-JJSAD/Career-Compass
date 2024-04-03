@@ -1,21 +1,53 @@
+import { useState } from 'react';
+import axiosInstance from './axiosInstance';
 import { Link } from "react-router-dom";
 import { Button } from "../components/ui/button.jsx";
 import { Input } from "../components/ui/input.jsx";
 import { Textarea } from "../components/ui/textarea.jsx";
 import { Label } from "../components/ui/label.jsx";
 import { useToast } from "../components/ui/use-toast.js";
+import { useNavigate } from 'react-router-dom'
 import "./global.css";
 
 function AddApp() {
+  const navigate = useNavigate();
   const { toast } = useToast();
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    toast({
-      title: "Success!",
-      description: "Your application has been saved.",
-    });
+    console.log(formData)
     // Handle form submission and data addition to CurrentApplications
+    try {
+      const response = await axiosInstance.post('/applications', formData);
+      console.log('Application saved successfully:', response.data);
+      // Reset form data or navigate to a different page
+      toast({
+        title: "Success!",
+        description: "Your application has been saved.",
+      });
+     navigate('/CurrentApps')
+    } catch (error) {
+      console.error('Error saving application:', error);
+    }
   };
+  const [formData, setFormData] = useState({
+    companyName: '',
+    appDate: '',
+    followUpDate: '',
+    jobDescription: '',
+    notes: '',
+    contact: '',
+  });
+
+  
+
+  const handleChange = (e) => {
+    const { name, value, files } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: files ? files[0] : value,
+    }));
+  };
+
 
   return (
     <>
@@ -54,7 +86,7 @@ function AddApp() {
           </h2>
           <div className="mb-4">
             <Label htmlFor="companyName">Company Name:</Label>
-            <Input type="text" id="companyName" name="companyName" required />
+            <Input type="text" id="companyName" name="companyName" required onChange={handleChange}/>
           </div>
           <div className="mb-4">
             <Label htmlFor="positionTitle">Position Title:</Label>
@@ -63,15 +95,16 @@ function AddApp() {
               id="positionTitle"
               name="positionTitle"
               required
+              onChange={handleChange}
             />
           </div>
           <div className="mb-4">
-            <Label htmlFor="appDeadline">Application Deadline:</Label>
-            <Input type="date" id="appDeadline" name="appDeadline" required />
+            <Label htmlFor="appDate">Application Deadline:</Label>
+            <Input type="date" id="appDate" name="appDate" required onChange={handleChange} />
           </div>
           <div>
             <Label htmlFor="followUpDate">Follow-Up Date:</Label>
-            <Input type="date" id="followUpDate" name="followUpDate" required />
+            <Input type="date" id="followUpDate" name="followUpDate" required onChange={handleChange}/>
           </div>
         </div>
 
@@ -82,11 +115,11 @@ function AddApp() {
           </h2>
           <div className="mb-4">
             <Label htmlFor="jobDescription">Job Description:</Label>
-            <Textarea id="jobDescription" name="jobDescription" rows={12} />
+            <Textarea id="jobDescription" name="jobDescription" rows={12} onChange={handleChange}/>
           </div>
           <div>
             <Label htmlFor="notes">Notes:</Label>
-            <Textarea id="notes" name="notes" rows={6} />
+            <Textarea id="notes" name="notes" rows={6} onChange={handleChange}/>
           </div>
         </div>
       </div>
@@ -103,6 +136,8 @@ function AddApp() {
         </Button>
         <Button
           onClick={handleSubmit}
+          
+          
           className="bg-teal-500 hover:bg-teal-700"
         >
           Submit
