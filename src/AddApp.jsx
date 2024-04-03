@@ -39,17 +39,22 @@ function AddApp() {
         Add Application
       </div>
 
-      {/* Cards */}
-      <div className="container mx-auto px-4 py-6 grid grid-cols-5 gap-4">
+      {/* Custom Grid for Cards */}
+      <div className="container mx-auto px-4 py-6 grid grid-cols-[220px_1fr] gap-4">
         {/* First Card */}
-        <div className="col-span-1 bg-white p-4 shadow rounded-lg">
+        <div className="bg-white p-4 shadow rounded-lg">
           <div className="mb-4">
             <Label htmlFor="companyName">Company Name:</Label>
             <Input type="text" id="companyName" name="companyName" required />
           </div>
           <div className="mb-4">
             <Label htmlFor="positionTitle">Position Title:</Label>
-            <Input type="text" id="positionTitle" name="positionTitle" required />
+            <Input
+              type="text"
+              id="positionTitle"
+              name="positionTitle"
+              required
+            />
           </div>
           <div className="mb-4">
             <Label htmlFor="appDeadline">Application Deadline:</Label>
@@ -61,15 +66,15 @@ function AddApp() {
           </div>
         </div>
 
-        {/* Second Card */}
-        <div className="col-span-4 bg-white p-4 shadow rounded-lg">
+        {/* Second Card - Takes remaining space */}
+        <div className="bg-white p-4 shadow rounded-lg">
           <div className="mb-4">
             <Label htmlFor="jobDescription">Job Description:</Label>
-            <Textarea id="jobDescription" name="jobDescription" rows={4} readOnly />
+            <Textarea id="jobDescription" name="jobDescription" rows={4} />
           </div>
           <div>
             <Label htmlFor="notes">Notes:</Label>
-            <Textarea id="notes" name="notes" rows={4} readOnly />
+            <Textarea id="notes" name="notes" rows={4} />
           </div>
         </div>
       </div>
