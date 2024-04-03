@@ -81,7 +81,7 @@ function MoreInfo() {
     <div className="flex flex-col h-dvh">
       
       {/* Navbar */}
-      <div className="bg-gray-800 text-white p-4 flex justify-between items-center">
+      <div className="bg-gray-800 !important text-white p-4 flex justify-between items-center">
         <div className="flex items-center">
           <div className="h-8 w-8 bg-gray-500 rounded-full"><Link to="/CurrentApps"></Link></div>
           <span className="ml-2 text-xl font-semibold">Career Compass</span>
@@ -180,7 +180,7 @@ function MoreInfo() {
               <Button className="bg-blue-500 hover:bg-blue-700">
                 View
               </Button>
-              <Button className="bg-green-500 hover:bg-green-700">
+              <Button className="bg-green-500 !important hover:bg-green-700">
                 Upload
               </Button>
             </div>
@@ -203,7 +203,7 @@ function MoreInfo() {
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
             ></textarea>
-            <Button className="mt-4 bg-blue-500 hover:bg-blue-700" onClick={handleSaveNotes}>
+            <Button onClick={handleSaveNotes} className="mt-4 bg-blue-500 hover:bg-blue-700" >
               Save Edits
             </Button>
           </div>
