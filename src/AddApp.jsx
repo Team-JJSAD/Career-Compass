@@ -82,11 +82,11 @@ function AddApp() {
           </h2>
           <div className="mb-4">
             <Label htmlFor="jobDescription">Job Description:</Label>
-            <Textarea id="jobDescription" name="jobDescription" rows={4} />
+            <Textarea id="jobDescription" name="jobDescription" rows={12} />
           </div>
           <div>
             <Label htmlFor="notes">Notes:</Label>
-            <Textarea id="notes" name="notes" rows={4} />
+            <Textarea id="notes" name="notes" rows={6} />
           </div>
         </div>
       </div>
