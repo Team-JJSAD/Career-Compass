@@ -76,20 +76,30 @@ function MoreInfo() {
       // TODO: Placeholder for future backend integration
     };
 
+    
+
   /* ----------------------------- RENDER THE PAGE ---------------------------- */
   return (
     <div className="flex flex-col h-dvh">
       
-      {/* Navbar */}
-      <div className="bg-gray-800 !important text-white p-4 flex justify-between items-center">
-        <div className="flex items-center">
-          <div className="h-8 w-8 bg-gray-500 rounded-full"><Link to="/CurrentApps"></Link></div>
-          <span className="ml-2 text-xl font-semibold">Career Compass</span>
+      {/* Nav Bar */}
+      <nav className="flex items-center justify-between bg-gray-800 py-4 px-6">
+        <div className="flex-grow text-center">
+          <h1 className="text-2xl font-bold text-white ml-44">Career Compass</h1>
         </div>
-        <Button className="bg-red-500 hover:bg-red-700">
-          <Link to="/">Logout</Link>
-        </Button>
-      </div>
+        <div className="flex justify-end">
+          <Button asChild>
+            <Link to="/CurrentApps" className="text-sm">
+              Home
+            </Link>
+          </Button>
+          <Button asChild className="ml-4 bg-red-500 hover:bg-red-700">
+            <Link to="/login" className="text-sm">
+              Logout
+            </Link>
+          </Button>
+        </div>
+      </nav>
 
       {/* Title Bar */}
       <div className="bg-gray-200 p-6 text-center font-bold text-3xl">

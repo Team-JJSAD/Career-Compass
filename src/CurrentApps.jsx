@@ -96,7 +96,7 @@ function CurrentApps() {
       header: "More Info",
       cell: ({ row }) => (
         <Button>
-          <Link to={`/MoreInfo/${row.id}`} className="text-white">
+          <Link to={`/MoreInfo/`} className="text-white">
             More Info
           </Link>
         </Button>
@@ -112,14 +112,14 @@ function CurrentApps() {
     <>
       <nav className="flex justify-between items-center bg-gray-800 py-4 px-6">
         <Button>
-          <Link to="/" className="text-white">
+          <Link to="/CurrentApps" className="text-white">
             Home
           </Link>
         </Button>
 
         <h1 className="text-2xl font-bold text-white">Career Compass</h1>
 
-        <Button>
+        <Button className="bg-red-500 hover:bg-red-700">
           <Link to="/" className="text-white">
             Logout
           </Link>

@@ -6,10 +6,10 @@ export function LoginForm({ onSubmit, isUsernameEmpty, isPasswordEmpty, username
     <form onSubmit={onSubmit} className={cn("w-full max-w-sm")}>
       <div className="mb-4">
         <label htmlFor="username" className="block text-sm font-medium mb-1">
-          Username:
+          Email:
         </label>
         <input
-          type="text"
+          type="email"
           id="username"
           value={username}
           onChange={onUsernameChange}
