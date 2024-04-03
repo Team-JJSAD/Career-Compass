@@ -43,6 +43,8 @@ function AddApp() {
       {/* Form */}
       <div className="container mx-auto">
         <form onSubmit={handleSubmit}>
+
+          {/* General information */}
           <div className="mb-4">
             <Label htmlFor="companyName">Company Name:</Label>
             <Input type="text" id="companyName" name="companyName" required />
@@ -59,6 +61,8 @@ function AddApp() {
             <Label htmlFor="jobDescription">Job Description:</Label>
             <Textarea id="jobDescription" name="jobDescription" rows={4} />
           </div>
+
+          {/* Documents */}
           <div className="mb-4">
             <Label htmlFor="resume">Add Resume:</Label>
             <Input type="file" id="resume" name="resume" />
@@ -67,13 +71,26 @@ function AddApp() {
             <Label htmlFor="coverLetter">Add Cover Letter:</Label>
             <Input type="file" id="coverLetter" name="coverLetter" />
           </div>
+
+          {/* Notes */}
           <div className="mb-4">
             <Label htmlFor="notes">Notes:</Label>
             <Textarea id="notes" name="notes" rows={4} />
           </div>
+
+          {/* Add Contact */}
           <div className="mb-4">
             <Label htmlFor="contact">Add Contact:</Label>
-            <Input type="text" id="contact" name="contact" />
+            <Input type="text" id="contactName" name="contactName" placeholder="Name"/>
+          </div>
+          <div className="mb-4">
+            <Input type="text" id="contactEmail" name="contactEmail" placeholder="Email"/>
+          </div>
+          <div className="mb-4">
+            <Input type="text" id="contactPosition" name="contactPosition" placeholder="Position"/>
+          </div>
+          <div className="mb-4">
+            <Input type="text" id="contactPhone" name="contactPhone" placeholder="Phone Number"/>
           </div>
           <Button type="submit">Submit</Button>
         </form>
