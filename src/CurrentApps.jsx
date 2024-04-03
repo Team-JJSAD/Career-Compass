@@ -110,21 +110,28 @@ function CurrentApps() {
 
   return (
     <>
-      <nav className="flex justify-between items-center bg-gray-800 py-4 px-6">
-        <Button>
-          <Link to="/CurrentApps" className="text-white">
-            Home
-          </Link>
-        </Button>
-
-        <h1 className="text-2xl font-bold text-white">Career Compass</h1>
-
-        <Button className="bg-red-500 hover:bg-red-700">
-          <Link to="/" className="text-white">
-            Logout
-          </Link>
-        </Button>
+      {/* Nav Bar */}
+      <nav className="flex items-center justify-between bg-gray-800 py-4 px-6">
+        <div className="flex-grow text-center">
+          <h1 className="text-2xl font-bold text-white ml-44">
+            Career Compass
+          </h1>
+        </div>
+        <div className="flex justify-end">
+          <Button asChild>
+            <Link to="/CurrentApps" className="text-sm">
+              Home
+            </Link>
+          </Button>
+          <Button asChild className="ml-4 bg-red-500 hover:bg-red-700">
+            <Link to="/login" className="text-sm">
+              Logout
+            </Link>
+          </Button>
+        </div>
       </nav>
+
+      {/* Add application and search application */}
       <div className="mb-4 mt-8 flex items-center justify-between">
         <Button className="ml-16">
           <Link to="/AddApp">Add Application</Link>
@@ -135,9 +142,10 @@ function CurrentApps() {
           placeholder="Search applications..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          
         />
       </div>
+
+      {/* Table of applications */}
       <Table>
         <TableHeader>
           <TableRow>
