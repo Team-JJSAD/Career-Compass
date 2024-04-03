@@ -5,6 +5,17 @@ import { Input } from "../components/ui/input.jsx";
 import { Textarea } from "../components/ui/textarea.jsx";
 import { Label } from "../components/ui/label.jsx";
 import { useToast } from "../components/ui/use-toast.js";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "../components/ui/alert-dialog";
 import "./global.css";
 
 function MoreInfo() {
@@ -55,7 +66,12 @@ function MoreInfo() {
 
   // Handle saving contacts edits
   const handleSaveContacts = () => {
-    console.log({ contactName, contactPosition, contactPhoneNumber, contactEmail });
+    console.log({
+      contactName,
+      contactPosition,
+      contactPhoneNumber,
+      contactEmail,
+    });
     toast({
       title: "Success!",
       description: "Your contacts have been saved.",
@@ -241,7 +257,6 @@ function MoreInfo() {
 
           {/* Contacts Section */}
           <div className="mb-4 flex flex-col">
-
             {/* Contact Name */}
             <div className="mb-2 ">
               <Label htmlFor="contactName">Contact Name:</Label>
@@ -265,7 +280,6 @@ function MoreInfo() {
                 onChange={(e) => setContactPosition(e.target.value)}
               />
             </div>
-
 
             {/* Contact Phone Number */}
             <div className="mb-2">
@@ -291,12 +305,12 @@ function MoreInfo() {
               />
             </div>
             <div>
-            <Button
-              className="bg-blue-500 hover:bg-blue-700 mt-2"
-              onClick={handleSaveContacts}
-            >
-              Save Edits
-            </Button>
+              <Button
+                className="bg-blue-500 hover:bg-blue-700 mt-2"
+                onClick={handleSaveContacts}
+              >
+                Save Edits
+              </Button>
             </div>
           </div>
         </div>
@@ -312,12 +326,31 @@ function MoreInfo() {
             Return to home
           </Link>
         </Button>
-        <Button
-          onClick={handleDeleteApplication}
-          className="bg-red-500 hover:bg-red-700"
-        >
-          Delete this Application
-        </Button>
+
+        {/* Delete this appplication with AlertDialog */}
+        <AlertDialog>
+          <AlertDialogTrigger asChild>
+            <Button className="bg-red-500 hover:bg-red-700">
+              Delete this application
+            </Button>
+          </AlertDialogTrigger>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+              <AlertDialogDescription>
+                This action cannot be undone. This will permanently delete your
+                application and remove your data from our servers.
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel>Cancel</AlertDialogCancel>
+              <AlertDialogAction onClick={handleDeleteApplication}>
+                Continue
+              </AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
+
         <Button
           onClick={handleSaveAllEdits}
           className="bg-teal-500 hover:bg-teal-700"

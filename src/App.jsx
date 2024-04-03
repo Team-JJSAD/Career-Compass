@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Toaster } from '../components/ui/toaster.jsx';
 
 
-
 // Import your page components
 import Splash from "./Splash.jsx";
 import Login from "./Login.jsx";
