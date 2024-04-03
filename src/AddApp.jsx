@@ -45,19 +45,19 @@ function AddApp() {
         <div className="col-span-1 bg-white p-4 shadow rounded-lg">
           <div className="mb-4">
             <Label htmlFor="companyName">Company Name:</Label>
-            <div className="mt-1">{/* Display company name here */}</div>
+            <Input type="text" id="companyName" name="companyName" required />
           </div>
           <div className="mb-4">
             <Label htmlFor="positionTitle">Position Title:</Label>
-            <div className="mt-1">{/* Display position title here */}</div>
+            <Input type="text" id="positionTitle" name="positionTitle" required />
           </div>
           <div className="mb-4">
             <Label htmlFor="appDeadline">Application Deadline:</Label>
-            <div className="mt-1">{/* Display application deadline here */}</div>
+            <Input type="date" id="appDeadline" name="appDeadline" required />
           </div>
           <div>
             <Label htmlFor="followUpDate">Follow-Up Date:</Label>
-            <div className="mt-1">{/* Display follow-up date here */}</div>
+            <Input type="date" id="followUpDate" name="followUpDate" required />
           </div>
         </div>
 
