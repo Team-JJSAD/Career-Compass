@@ -181,7 +181,7 @@ function CurrentApps() {
 
       {/* Footer banner */}
       <footer className="fixed inset-x0 bottom-0">
-        <img src="../assets/footer_banner.jpg" alt="Footer Image" className="w-full object-cover h-24" />
+        <img src="../assets/CC_Footer_Banner.jpeg" alt="Footer Image" className="w-full object-cover h-24" />
       </footer>
     </>
   );
