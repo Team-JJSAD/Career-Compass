@@ -17,6 +17,7 @@ import {
   AlertDialogTrigger,
 } from "../components/ui/alert-dialog";
 import "./global.css";
+import compassIcon from '../assets/compass.png';
 
 function MoreInfo() {
   const { toast } = useToast();
@@ -101,6 +102,7 @@ function MoreInfo() {
       {/* Nav Bar */}
       <nav className="flex items-center justify-between bg-gray-800 py-4 px-6">
         <div className="flex-grow text-center">
+          <img src={compassIcon} alt="Compass Icon" className="h-10 w-10" />
           <h1 className="text-2xl font-bold text-white ml-44">
             Career Compass
           </h1>

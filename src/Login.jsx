@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import axiosInstance from './axiosInstance'
 import { LoginPage } from "../components/ui/login-page.jsx";
 import { LoginForm } from "../components/ui/login-form.jsx";
+import compassIcon from '../assets/compass_icon.png';
 
 function Login() {
   const BACKEND_URL = 'http://localhost:5173/'

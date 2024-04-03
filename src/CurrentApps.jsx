@@ -12,6 +12,7 @@ import {
 import { Input } from "../components/ui/input.jsx";
 import { useState, useEffect } from "react";
 import "./global.css";
+import compassIcon from '../assets/compass_icon.png';
 
 function CurrentApps() {
   // const [data, setData] = useState([]);
@@ -113,6 +114,7 @@ function CurrentApps() {
       {/* Nav Bar */}
       <nav className="flex items-center justify-between bg-gray-800 py-4 px-6">
         <div className="flex-grow text-center">
+          <img src={compassIcon} alt="Compass Icon" className="h-10 w-10" />
           <h1 className="text-2xl font-bold text-white ml-44">
             Career Compass
           </h1>
@@ -176,8 +178,10 @@ function CurrentApps() {
           ))}
         </TableBody>
       </Table>
+
+      {/* Footer banner */}
       <footer className="fixed inset-x0 bottom-0">
-        hello
+        <img src="../assets/footer_banner.jpg" alt="Footer Image" className="w-full object-cover h-24" />
       </footer>
     </>
   );
