@@ -3,7 +3,7 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import { User } from 'lucide-react';
 const app = express();
-// const cookieParser = require('cookie-parser');
+// import cookieParser from 'cookie-parser';
 
 import UserController from './controllers/usercontroller.js'
 import ApplicationController from './controllers/applicationController.js';
@@ -30,14 +30,16 @@ app.use(cors({
 }));
 
 
-app.post('/register', createUser)
-app.post('/login', verifyUser, loggedIn);
-app.post('/ForgotPassword', resetPassword)
+
 
 // Route handler
 app.get('/', (req, res) => {
   res.send('Hello from the server!');
 });
+app.post('/register', createUser)
+app.post('/login', verifyUser, loggedIn);
+app.post('/ForgotPassword', resetPassword)
+
 app.post('/applications', createApplication);
 app.get('/applications', getApplications);
 

@@ -4,23 +4,61 @@ import db from './models/userModel.js'
 
 const UserController = {};
 
+const insertUserIntoPostgreSQL = (firstName, lastName, email) => {
+  const queryText = `INSERT INTO Users(FirstName, LastName, Email)
+                     VALUES($1, $2, $3)
+                     RETURNING UserID;`; // Return the generated UserID
+
+  return db.query(queryText, [firstName, lastName, email])
+    .then(res => res.rows[0].UserID) // Extract UserID from the result
+    .catch(err => {
+      console.error('Error inserting user into PostgreSQL:', err);
+      throw err;
+    });
+};
+
+
+
+// usercontroller.js
 
 UserController.createUser = async (req, res, next) => {
-    // testing
-    console.log('In UserController.createUser');
+  try {
+    // Create a new user in the database
+    const user = await User.create({ email, password });
+    return newUser;
+  } catch (error) {
+    console.error('Error creating user:', error);
+    throw error;
+  }
+};
+
+
+
+
+// UserController.createUser = async (req, res, next) => {
+//     // testing
+//     console.log('In UserController.createUser');
     
-    const { username, password } = req.body;
-    try {
-      const user = await User.create({ username, password });
-      res.cookie("SSID", user._id, { httpOnly: true });
-      return res.status(200).json({ success: true, user: user });
-    } catch (err) {
-      return next({
-        message: "Error in the userController.createUser",
-        log: "Error",
-      });
-    }
-  };
+//     // const { username, password } = req.body;
+//     let { firstName, lastName, email, password } = req.body;
+//     // console.log(req.body)
+//     try {
+//       const postgresUserId = await insertUserIntoPostgreSQL(firstName, lastName, email);
+
+//       const user = await User.create({ email, password, postgresUserId });
+//       console.log('User created: ', user);
+
+//       // res.cookie("userID", postgresUserId, { httpOnly: true })
+//       // res.cookie("SSID", user._id, { httpOnly: true });
+//       return res.status(200).json({ user: user });
+//       // return res.status(200).json({ message: 'User created successfully' });
+//     } catch (err) {
+//       return next({
+//         message: "Error in the userController.createUser",
+//         log: "Error",
+//       });
+//     }
+//   };
 
   UserController.verifyUser = async (req, res, next) => {
     try {

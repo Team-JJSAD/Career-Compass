@@ -1,15 +1,18 @@
 import { Link } from "react-router-dom";
 import { Button } from "./button.jsx";
 import { cn } from "../../lib/utils.js";
+import compassIcon from '/assets/compass_icon.png';
 
 export function LoginPage({ children, onRegisterClick }) {
   return (
     <div>
       {/* Nav Bar */}
       <nav className="flex items-center justify-between bg-gray-800 py-4 px-6">
-        <div className="flex-grow text-center">
-          <h1 className="text-2xl font-bold text-white ml-44">Career Compass</h1>
-        </div>
+    <div className="flex items-center">
+      {/* Apply style directly to the img element */}
+      <img src={compassIcon} alt="Compass Icon" style={{ width: '60px', height: '60px' }} />
+      <h1 className="text-2xl font-bold text-white ml-2">Career Compass</h1>
+    </div>
         <div className="flex justify-end">
           <Button asChild>
             <Link to="/" className="text-sm">

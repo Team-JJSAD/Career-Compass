@@ -14,17 +14,13 @@ const pool = new Pool({
 
 const createUsersTable = () => {
   const queryText =
-      `CREATE TABLE Applications (
-        ApplicationID SERIAL PRIMARY KEY,
-        UserID INTEGER,
-        CompanyName VARCHAR(255) NOT NULL,
-        AppDate DATE NOT NULL,
-        FollowUpDate DATE,
-        JobDescription TEXT,
-        Notes TEXT,
-        Contact VARCHAR(255),
-        FOREIGN KEY (UserID) REFERENCES Users(UserID)
-      );`;
+      `CREATE TABLE IF NOT EXISTS Users (
+        UserID SERIAL PRIMARY KEY,
+        FirstName VARCHAR(255) NOT NULL,
+        LastName VARCHAR(255) NOT NULL,
+        Email VARCHAR(255) UNIQUE NOT NULL
+        DateCreated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+    )`;
 
   return pool.query(queryText)
       .then((res) => {

@@ -12,6 +12,15 @@ import {
 import { Input } from "../components/ui/input.jsx";
 import { useState, useEffect } from "react";
 import "./global.css";
+import compassIcon from '../assets/compass_icon.png';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../components/ui/select"
+
 
 function CurrentApps() {
   const [data, setData] = useState([]);
@@ -29,6 +38,16 @@ function CurrentApps() {
     };
     fetchData();
   }, []);
+
+  const statusOptions = [
+    "Waiting for response",
+    "Phone Screen",
+    "Behavioral Interview",
+    "Technical Interview #1",
+    "Technical Interview #2",
+    "Technical Interview #3",
+    "Final Interview",
+  ];
 
   // // TESTING - MOCK DATA
   // const [data, setData] = useState([
@@ -94,6 +113,22 @@ function CurrentApps() {
       header: "Company/Name",
     },
     {
+      accessorKey: "status",
+      header: "Status",
+      cell: ({ row }) => (
+        <Select>
+          <SelectTrigger className="w-full">
+            <SelectValue placeholder="Select status" />
+          </SelectTrigger>
+          <SelectContent>
+            {statusOptions.map((option) => (
+              <SelectItem key={option} value={option}>{option}</SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      ),
+    },
+    {
       accessorKey: "appdate",
       header: "App Date",
     },
@@ -137,11 +172,11 @@ function CurrentApps() {
     <>
       {/* Nav Bar */}
       <nav className="flex items-center justify-between bg-gray-800 py-4 px-6">
-        <div className="flex-grow text-center">
-          <h1 className="text-2xl font-bold text-white ml-44">
-            Career Compass
-          </h1>
-        </div>
+    <div className="flex items-center">
+      {/* Apply style directly to the img element */}
+      <img src={compassIcon} alt="Compass Icon" style={{ width: '60px', height: '60px' }} />
+      <h1 className="text-2xl font-bold text-white ml-2">Career Compass</h1>
+    </div>
         <div className="flex justify-end">
           <Button asChild>
             <Link to="/CurrentApps" className="text-sm">

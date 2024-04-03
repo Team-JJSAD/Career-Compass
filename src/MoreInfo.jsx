@@ -17,6 +17,7 @@ import {
   AlertDialogTrigger,
 } from "../components/ui/alert-dialog";
 import "./global.css";
+import compassIcon from '../assets/compass.png';
 
 function MoreInfo() {
   const { toast } = useToast();
@@ -100,11 +101,11 @@ function MoreInfo() {
     <div className="flex flex-col h-dvh">
       {/* Nav Bar */}
       <nav className="flex items-center justify-between bg-gray-800 py-4 px-6">
-        <div className="flex-grow text-center">
-          <h1 className="text-2xl font-bold text-white ml-44">
-            Career Compass
-          </h1>
-        </div>
+    <div className="flex items-center">
+      {/* Apply style directly to the img element */}
+      <img src={compassIcon} alt="Compass Icon" style={{ width: '60px', height: '60px' }} />
+      <h1 className="text-2xl font-bold text-white ml-2">Career Compass</h1>
+    </div>
         <div className="flex justify-end">
           <Button asChild>
             <Link to="/CurrentApps" className="text-sm">

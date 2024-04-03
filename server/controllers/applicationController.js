@@ -20,16 +20,18 @@ const ApplicationController = {
   },
   createApplication: async (req, res) => {
     const { companyName, appDate, followUpDate, jobDescription, notes, contact } = req.body;
+    const userID = req.cookies['userID'];
     // const resumePath = req.files && req.files['resume'] ? req.files['resume'][0].path : null;
     // const coverLetterPath = req.files && req.files['coverLetter'] ? req.files['coverLetter'][0].path : null;
   console.log(req.body)
     try {
       const query = `
-        INSERT INTO Applications (CompanyName, AppDate, FollowUpDate, JobDescription, Notes, Contact)
-        VALUES ($1, $2, $3, $4, $5, $6)
+        INSERT INTO Applications (UserID, CompanyName, AppDate, FollowUpDate, JobDescription, Notes, Contact)
+        VALUES ($1, $2, $3, $4, $5, $6, $7)
         RETURNING *;
       `;
       const values = [
+        userID,
         companyName,
         appDate,
         followUpDate,

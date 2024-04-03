@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "../components/ui/button.jsx";
 import "./global.css";
 import careerCompassImage from '../assets/careerCompass2.jpg';
+import compassIconImage from '../assets/compass.png';
 
 function Splash() {
   return (
@@ -10,6 +11,7 @@ function Splash() {
       style={{ backgroundImage: `url(${careerCompassImage})` }}
     >
       <div className="text-center">
+        <img src={compassIconImage} alt="Compass Icon" className="mb-0 mx-auto" />
         <h1 className="text-3xl mb-4 text-strong">Career Compass</h1>
         <h2 className="text-2xl mb-4">Track Your Applications, Get More Interviews.</h2>
         <p className="text-gray-700 mb-8">
