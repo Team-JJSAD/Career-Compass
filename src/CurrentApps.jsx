@@ -176,6 +176,9 @@ function CurrentApps() {
           ))}
         </TableBody>
       </Table>
+      <footer className="fixed inset-x0 bottom-0">
+        hello
+      </footer>
     </>
   );
 }
