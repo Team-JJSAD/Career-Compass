@@ -35,14 +35,13 @@ function AddApp() {
         </div>
       </nav>
 
+      {/* Title Bar */}
+      <div className="bg-gray-200 p-2 text-center font-bold text-2xl">
+        Add Application
+      </div>
+
       {/* Form */}
       <div className="container mx-auto">
-        <div className="flex justify-between mt-2">
-          <h2 className="text-2xl font-bold mb-4">Application Details</h2>
-          <Button className="bg-red-500">
-            <Link to="/CurrentApps">X</Link>
-          </Button>
-        </div>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <Label htmlFor="companyName">Company Name:</Label>

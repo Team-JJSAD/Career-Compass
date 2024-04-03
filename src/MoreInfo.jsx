@@ -102,7 +102,7 @@ function MoreInfo() {
       </nav>
 
       {/* Title Bar */}
-      <div className="bg-gray-200 p-6 text-center font-bold text-3xl">
+      <div className="bg-gray-200 p-2 text-center font-bold text-2xl">
         More Info
       </div>
 
