@@ -82,6 +82,7 @@ function MoreInfo() {
   /* ----------------------------- RENDER THE PAGE ---------------------------- */
   return (
     <div className="flex flex-col h-dvh">
+
       {/* Nav Bar */}
       <nav className="flex items-center justify-between bg-gray-800 py-4 px-6">
         <div className="flex-grow text-center">
@@ -108,13 +109,17 @@ function MoreInfo() {
         More Info
       </div>
 
+
       {/* Content Bar */}
       <div className="flex-grow container mx-auto p-4 grid grid-cols-1 md:grid-cols-3 gap-4 pb-24">
+
         {/* First Card */}
         <div className="bg-white shadow rounded p-4">
           <h2 className="text-xl font-bold text-center mb-4">
             Application Info
           </h2>
+
+          {/* Company Name */}
           <div className="mb-4">
             <Label htmlFor="companyName">Company Name:</Label>
             <Input
@@ -126,6 +131,7 @@ function MoreInfo() {
             />
           </div>
 
+          {/* Position Title*/}
           <div className="mb-4">
             <Label htmlFor="positionTitle">Position Title:</Label>
             <Input
@@ -137,6 +143,7 @@ function MoreInfo() {
             />
           </div>
 
+          {/* Application Deadline */}
           <div className="mb-4">
             <Label htmlFor="applicationDeadline">Application Deadline:</Label>
             <Input
@@ -148,6 +155,7 @@ function MoreInfo() {
             />
           </div>
 
+          {/* Follow-Up Date */}
           <div className="mb-4">
             <Label htmlFor="followUpDate">Follow-Up Date:</Label>
             <Input
@@ -159,6 +167,7 @@ function MoreInfo() {
             />
           </div>
 
+          {/* Job Description */}
           <div className="mb-4">
             <Label htmlFor="jobDescription">Job Description:</Label>
             <Textarea 
@@ -169,8 +178,6 @@ function MoreInfo() {
               rows={4} 
             />
           </div>
-
-
           <Button
             className="bg-blue-500 hover:bg-blue-700"
             onClick={handleSaveFirstCard}
@@ -178,6 +185,7 @@ function MoreInfo() {
             Save Edits
           </Button>
         </div>
+
 
         {/* Second Card for Attach Resume and Cover Letter */}
         <div className="bg-white shadow rounded p-4 flex flex-col items-center">
@@ -211,11 +219,13 @@ function MoreInfo() {
           </div>
         </div>
 
+
         {/* Third Card for Notes and Contacts */}
         <div className="bg-white shadow rounded p-4">
           <h2 className="text-xl font-bold text-center mb-4">
             Application Notes
           </h2>
+
           {/* Notes Section */}
           <div className="mb-4">
             <label
@@ -232,6 +242,19 @@ function MoreInfo() {
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
             ></textarea>
+
+            {/* Notes */}
+            <div className="mb-4">
+              <Label htmlFor="notes">Notes:</Label>
+              <Textarea 
+                id="notes" 
+                name="notes" 
+                value={notes}
+                onChange={(e) => setNotes(e.target.value)}
+                rows={4} 
+              />
+            </div>
+
             <Button
               onClick={handleSaveNotes}
               className="mt-4 bg-blue-500 hover:bg-blue-700"
