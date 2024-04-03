@@ -55,7 +55,7 @@ function MoreInfo() {
 
   // Handle saving contacts edits
   const handleSaveContacts = () => {
-    console.log({ contactName, position, phoneNumber, email });
+    console.log({ contactName, contactPosition, contactPhoneNumber, contactEmail });
     toast({
       title: "Success!",
       description: "Your contacts have been saved.",
