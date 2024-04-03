@@ -60,10 +60,11 @@ function MoreInfo() {
   /* ----------------------------- RENDER THE PAGE ---------------------------- */
   return (
     <div className="flex flex-col h-dvh">
+      
       {/* Navbar */}
       <div className="bg-gray-800 text-white p-4 flex justify-between items-center">
         <div className="flex items-center">
-          <div className="h-8 w-8 bg-gray-500 rounded-full"></div>
+          <div className="h-8 w-8 bg-gray-500 rounded-full"><Link to="/CurrentApps"></Link></div>
           <span className="ml-2 text-xl font-semibold">Career Compass</span>
         </div>
         <Button className="bg-red-500 hover:bg-red-700">
@@ -81,6 +82,7 @@ function MoreInfo() {
       <div className="flex-grow container mx-auto p-4 grid grid-cols-1 md:grid-cols-3 gap-4 pb-24">
         {/* First Card */}
         <div className="bg-white shadow rounded p-4">
+          <h2 className="text-xl font-bold text-center mb-4">Application Info</h2>
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="companyName">
               Company Name
@@ -138,6 +140,7 @@ function MoreInfo() {
 
         {/* Second Card for Attach Resume and Cover Letter */}
         <div className="bg-white shadow rounded p-4 flex flex-col items-center">
+          <h2 className="text-xl font-bold text-center mb-4">Application Documents</h2>
           {/* Attach Resume */}
           <div className="w-full mb-8">
             <h3 className="text-lg font-semibold mb-2 text-center">Attach Resume</h3>
@@ -167,6 +170,7 @@ function MoreInfo() {
 
         {/* Third Card for Notes and Contacts */}
         <div className="bg-white shadow rounded p-4">
+          <h2 className="text-xl font-bold text-center mb-4">Application Notes</h2>
           {/* Notes Section */}
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="notes">
