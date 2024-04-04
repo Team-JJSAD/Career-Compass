@@ -22,6 +22,7 @@ import {
 } from "../components/ui/select"
 
 
+
 function CurrentApps() {
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -204,7 +205,7 @@ function CurrentApps() {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </div>
-
+      <div className="overflow-auto h-full">
       {/* Table of applications */}
       <Table>
         <TableHeader>
@@ -236,8 +237,8 @@ function CurrentApps() {
           ))}
         </TableBody>
       </Table>
+      </div>
       <footer className="fixed inset-x0 bottom-0">
-        hello
       </footer>
     </>
   );

@@ -6,5 +6,5 @@
         "@/lib/utils/*": ["src/lib/utils/*"]
       }
     },
-    "include": ["src", "components/ui/toast.jsx", "components/ui/toaster.jsx", "components/ui/use-toast.js"]
+    "include": ["src", "components/ui/toast.jsx", "components/ui/toaster.jsx", "components/ui/use-toast.js", "components/ui/scroll-area.jsx"]
   }
